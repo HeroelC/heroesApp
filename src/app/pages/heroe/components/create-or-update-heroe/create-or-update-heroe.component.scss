@@ -1,0 +1,41 @@
+:host {
+  .border-form{
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    border-radius: 16px;
+  }
+
+  .form{
+    flex-direction: column;
+
+    @media screen and (min-width: 1280px){
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .avatar-input{
+    @media screen and (min-width: 1280px){
+      width: 100%;
+      max-width: 500px;
+    }
+  }
+
+  .img-preview{
+    width: 100px;
+    height: 100px;
+  }
+
+  .form-input{
+    width: 100%;
+  }
+
+  .m-w-120{
+    min-width: 120px;
+
+    @media screen and (min-width: 1280px){
+      min-width: 260px;
+    }
+  }
+}
+
+

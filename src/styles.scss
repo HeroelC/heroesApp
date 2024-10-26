@@ -1,1 +1,90 @@
 /* You can add global styles to this file, and also import other style files */
+
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$azure-palette,
+    tertiary: mat.$blue-palette,
+  )
+));
+
+html, body {
+   height: 100%;
+   @include mat.all-component-themes($theme);
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.d-flex{
+  display: flex;
+}
+
+.justify-content-center{
+  justify-content: center;
+}
+
+.justify-between{
+  justify-content: space-between;
+}
+
+.align-item-center{
+  align-items: center;
+}
+
+.m-b-0{
+  margin-bottom: 0 !important;
+}
+
+.m-b-16{
+  margin-bottom: 16px !important;
+}
+
+.m-l-8{
+  margin-left: 8px !important;
+}
+
+.m-l-16{
+  margin-left: 16px !important;
+}
+
+.m-t-40{
+  margin-top: 40px !important;
+}
+
+.m-r-8{
+  margin-right: 8px !important;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.align-items-center{
+  align-items: center;
+}
+
+.p-20{
+  padding: 20px;
+}
+
+.success-notification{
+  & > div{
+    background-color: #4CAF50 !important;
+  }
+}
+
+.error-notification{
+  & > div{
+    background-color: #f44336 !important;
+  }
+}
+
+.warning-notification{
+  & > div{
+    background-color: #ff9800 !important;
+  }
+}
+@include mat.color-variants-backwards-compatibility($theme);

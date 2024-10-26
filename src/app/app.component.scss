@@ -1,0 +1,18 @@
+
+.max-width-1440{
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.logo-mindata{
+  width: 0;
+
+  @media screen and (min-width: 500px){
+    width: auto;
+  }
+}
+
+.pointer:hover{
+  cursor: pointer;
+}

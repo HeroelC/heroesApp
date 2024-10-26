@@ -1,0 +1,49 @@
+<form [formGroup]="form" class="border-form p-20">
+
+  <div class="d-flex form">
+    <div class="avatar-input">
+      <figure class="text-center">
+        <img class="img-preview" [src]="form.get('img')?.value ?? 'default.png'" onerror="this.onerror=null;this.src='default.png'">
+      </figure>
+      <mat-form-field appearance="outline" class="form-input">
+        <mat-label>Avatar</mat-label>
+        <input matInput formControlName="img">
+      </mat-form-field>
+    </div>
+
+    <div class="form-inputs-general">
+      <mat-form-field appearance="outline" class="form-input">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-input">
+        <mat-label>Descripción</mat-label>
+        <input matInput formControlName="description">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-input">
+        <mat-label>Poder</mat-label>
+        <input matInput formControlName="power">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-input">
+        <mat-label>Tipo</mat-label>
+        <mat-select formControlName="type">
+          @for (type of types; track type) {
+            <mat-option [value]="type.value">{{type.description}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="w-100 m-t-40">
+    <div class="d-flex justify-content-center">
+      <button class="m-w-120" mat-stroked-button (click)="back()" [disabled]="loading">Volver</button>
+      <button class="m-w-120 m-l-8" mat-flat-button (click)="createOrUpdate()" [disabled]="loading">Guardar</button>
+    </div>
+  </div>
+
+
+</form>

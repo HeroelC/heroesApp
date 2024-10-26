@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+
+@if(!loading){
+  <app-create-or-update-heroe
+  [heroe]="heroe"
+  />
+}
+
+@if(loading){
+  <div class="d-flex justify-content-center">
+    <div>
+      <mat-spinner></mat-spinner>
+      <p class="m-t-40">Cargando...</p>
+    </div>
+  </div>
+}
+
