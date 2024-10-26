@@ -1,0 +1,19 @@
+<header class="d-flex justify-between align-items-center p-20">
+  <h1 class="m-b-0 font-32 m-r-8">¿Desea eliminar {{data.heroes.length == 1 ? 'el':'los'}} heroe{{data.heroes.length == 1 ? '':'s'}}?</h1>
+  <button mat-icon-button mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</header>
+  <div mat-dialog-content>
+    @for( hero of data.heroes; track hero) {
+      <div class="d-flex align-items-center m-b-16">
+        <img class="b-r-img" [src]="hero.img" width="64" height="64" [alt]="'Imagen de ' + hero.name" onerror="this.onerror=null;this.src='default.png'">
+        <span class="m-l-16">{{ hero.name }}</span>
+      </div>
+    }
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-stroked-button (click)="confirm(false)">Cancelar</button>
+    <button mat-button (click)="confirm(true)" cdkFocusInitial mat-flat-button>Confirmar</button>
+  </div>
+
