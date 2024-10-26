@@ -27,6 +27,7 @@
     </div>
   } @else {
     <app-table-heroes
+    #tableHeroes
     [changeDataSource]="filterHeroesList"
     (selectedHeroes)="selectedHeroes($event)" />
   }

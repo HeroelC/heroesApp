@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { TableHeroesComponent } from '../../shared/table-heroes/table-heroes.component';
 import { AngularMaterialModule } from '../../shared/angular-material.module';
 import { PanelActionHeroesComponent } from '../../shared/panel-action-heroes/panel-action-heroes.component';
@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { NotificationService } from '../../services/notification.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmComponent } from '../../shared/modals/confirm/confirm.component';
+import { V } from '@angular/cdk/keycodes';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,8 @@ import { ConfirmComponent } from '../../shared/modals/confirm/confirm.component'
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+
+  @ViewChild(TableHeroesComponent) tableHeroes!: TableHeroesComponent;
 
   heroes: Heroes[] = [];
   filterHeroesList: Heroes[] = [];
@@ -86,10 +89,12 @@ export class HomeComponent {
               next: () => {
                 this.loading = false;
                 this.notification.showSuccess('Heroes eliminados correctamente');
+                this.tableHeroes.selection.clear();
                 this.getAllHeroes();
               },
               error: () => {
                 this.notification.showError('Disculpa, ocurrio un error al eliminar los heroes');
+                this.tableHeroes.selection.clear();
                 this.loading = false;
               }
             });
