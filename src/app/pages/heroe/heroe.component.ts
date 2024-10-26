@@ -18,7 +18,6 @@ export class HeroeComponent {
     this.route.params.subscribe( params => {
       this.loading = true;
       const id = params['id'];
-      console.log(id)
       if( id ) {
         this.heroService.getById( id ).subscribe({
           next: heroe => {

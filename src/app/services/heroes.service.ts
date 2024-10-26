@@ -13,7 +13,8 @@ export class HeroesService {
     return new Observable( observer => {
       setTimeout(() => {
         const heroesList = JSON.parse(localStorage.getItem('heroes') || '[]');
-        heroe.id = (parseInt(heroesList[heroesList.length - 1].id) + 1).toString();
+        if( heroesList.length === 0 ) heroe.id = '1';
+        else heroe.id = (parseInt(heroesList[heroesList.length - 1].id) + 1).toString();
         heroesList.push(heroe);
         localStorage.setItem('heroes', JSON.stringify(heroesList));
         return observer.next();

@@ -84,17 +84,18 @@ export class HomeComponent {
           }
         }).afterClosed().subscribe(result => {
           if(result){
+            const ids = this.heroesSelected.map(hero => hero.id);
+            this.tableHeroes.selection.clear();
             this.loading = true;
-            this.heroesService.delete( this.heroesSelected.map(hero => hero.id) ).subscribe({
+            this.heroesService.delete( ids ).subscribe({
               next: () => {
-                this.loading = false;
+
                 this.notification.showSuccess('Heroes eliminados correctamente');
-                this.tableHeroes.selection.clear();
+                this.loading = false;
                 this.getAllHeroes();
               },
               error: () => {
                 this.notification.showError('Disculpa, ocurrio un error al eliminar los heroes');
-                this.tableHeroes.selection.clear();
                 this.loading = false;
               }
             });
