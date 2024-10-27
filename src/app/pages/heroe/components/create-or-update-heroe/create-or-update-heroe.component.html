@@ -5,10 +5,10 @@
       <figure class="text-center">
         <img class="img-preview" [src]="form.get('img')?.value ?? 'default.png'" onerror="this.onerror=null;this.src='default.png'">
       </figure>
-      <mat-form-field appearance="outline" class="form-input">
-        <mat-label>Avatar</mat-label>
-        <input matInput formControlName="img">
-      </mat-form-field>
+      <div>
+        <button class="m-w-120 m-l-8 form-input" mat-flat-button [disabled]="loading" (click)="openFileInput(inputFile)">* Seleccionar un avatar</button>
+      </div>
+      <input type="file" (change)="onFileSelected($event)" accept="image/*" #inputFile class="hidden">
     </div>
 
     <div class="form-inputs-general">

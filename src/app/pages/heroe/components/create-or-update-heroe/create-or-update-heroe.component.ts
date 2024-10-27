@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Heroes } from '../../../../dtos/heroes.dto';
 import { HeroesService } from '../../../../services/heroes.service';
@@ -18,8 +18,8 @@ export class CreateOrUpdateHeroeComponent {
   loading: boolean = false;
 
   types = [
-    { value: 'hero', description: 'Hero' },
-    { value: 'villain', description: 'Villain' },
+    { value: 'hero', description: 'Héroe' },
+    { value: 'villain', description: 'Villano' },
   ]
 
   constructor(private heroesService: HeroesService, private route: Router, private notification: NotificationService) {}
@@ -80,5 +80,25 @@ export class CreateOrUpdateHeroeComponent {
         }
       });
     }
+  }
+
+  async onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files[0]) {
+      this.loading = true;
+      const file = input.files[0];
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        this.form.get('img')?.setValue(reader.result);
+        this.loading = false;
+      };
+
+      reader.readAsDataURL(file);
+    }
+  }
+
+  openFileInput( element : HTMLInputElement ){
+    element.click();
   }
 }
