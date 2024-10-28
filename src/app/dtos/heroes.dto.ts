@@ -1,8 +1,8 @@
-export interface Heroes extends CreateHeroeDTO{
+export interface Heroes extends CreateHeroDTO{
   id: string;
 }
 
-export interface CreateHeroeDTO{
+export interface CreateHeroDTO{
   name: string;
   description?: string;
   power?: number;
@@ -10,4 +10,4 @@ export interface CreateHeroeDTO{
   type: 'hero' | 'villain';
 }
 
-export type UpdateHeroeDTO = Partial<CreateHeroeDTO>;
+export type UpdateHeroDTO = Partial<CreateHeroDTO>;

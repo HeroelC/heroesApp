@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeroeComponent } from './heroe.component';
-import { HeroeRoutingModule } from './heroe-routing.module';
+import { HeroComponent } from './hero.component';
+import { HeroRoutingModule } from './hero-routing.module';
 import { AngularMaterialModule } from '../../shared/angular-material.module';
-import { CreateOrUpdateHeroeComponent } from './components/create-or-update-heroe/create-or-update-heroe.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpperFirstLetterDirective } from '../../directives/upper-first-letter.directive';
+import { CreateOrUpdateHeroComponent } from './components/create-or-update-hero/create-or-update-hero.component';
 
 @NgModule({
-  declarations: [HeroeComponent, CreateOrUpdateHeroeComponent],
+  declarations: [HeroComponent, CreateOrUpdateHeroComponent],
   imports: [
     CommonModule,
-    HeroeRoutingModule,
+    HeroRoutingModule,
     AngularMaterialModule,
     FormsModule,
     ReactiveFormsModule,

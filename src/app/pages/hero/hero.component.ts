@@ -5,13 +5,12 @@ import { HeroesService } from '../../services/heroes.service';
 import { Heroes } from '../../dtos/heroes.dto';
 
 @Component({
-  selector: 'app-heroe',
-  templateUrl: './heroe.component.html',
-  styleUrl: './heroe.component.scss'
+  selector: 'app-hero',
+  templateUrl: './hero.component.html',
 })
-export class HeroeComponent {
+export class HeroComponent {
   title = '';
-  heroe: Heroes | null = null;
+  hero: Heroes | null = null;
   loading = false;
 
   constructor( private route: ActivatedRoute, private heroService: HeroesService, private router: Router ) {
@@ -20,8 +19,8 @@ export class HeroeComponent {
       const id = params['id'];
       if( id ) {
         this.heroService.getById( id ).subscribe({
-          next: heroe => {
-            this.heroe = heroe;
+          next: hero => {
+            this.hero = hero;
             this.title = 'Editando heroe';
             this.loading = false;
         },

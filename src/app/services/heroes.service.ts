@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Heroes, UpdateHeroeDTO } from '../dtos/heroes.dto';
+import { Heroes, UpdateHeroDTO } from '../dtos/heroes.dto';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -50,7 +50,7 @@ export class HeroesService {
     })
   }
 
-  update(id: string, heroeUpdate: UpdateHeroeDTO){
+  update(id: string, heroeUpdate: UpdateHeroDTO){
     return new Observable( observer => {
       setTimeout(() => {
         try{
