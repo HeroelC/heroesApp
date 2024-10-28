@@ -18,4 +18,4 @@ import { CreateOrUpdateHeroComponent } from './components/create-or-update-hero/
     UpperFirstLetterDirective,
   ]
 })
-export class HeroeModule { }
+export class HeroModule { }

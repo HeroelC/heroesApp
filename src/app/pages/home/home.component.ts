@@ -58,7 +58,7 @@ export class HomeComponent {
   action( action: string ){
     switch(action){
       case 'ADD':
-        this.router.navigate(['/heroe']);
+        this.router.navigate(['/hero']);
         break;
       case 'EDIT':
         if(this.heroesSelected.length === 0){
@@ -69,7 +69,7 @@ export class HomeComponent {
           this.notification.showWarning('Solo puedes selecionar un heroe para editar');
           return;
         }
-        this.router.navigate(['/heroe', this.heroesSelected[0].id]);
+        this.router.navigate(['/hero', this.heroesSelected[0].id]);
         break;
       case 'DELETE':
         if(this.heroesSelected.length === 0){
